@@ -1,5 +1,6 @@
 import static org.junit.Assert.*;
 
+import CoffeeSrc.Vaso;
 import org.junit.Test;
 
 
@@ -12,7 +13,7 @@ public class TestVaso {
 
         boolean resultado = vasosPequenos.hasVasos(1);
 
-        assertEquals(true, resultado);
+        assertTrue(resultado);
     }
 
     @Test
@@ -21,7 +22,7 @@ public class TestVaso {
 
         boolean resultado = vasosPequenos.hasVasos(2);
 
-        assertEquals(false, resultado);
+        assertFalse(resultado);
     }
 
     @Test
