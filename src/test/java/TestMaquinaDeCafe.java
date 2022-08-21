@@ -1,3 +1,7 @@
+import CoffeeSrc.Azucarero;
+import CoffeeSrc.Cafetera;
+import CoffeeSrc.MaquinaDeCafe;
+import CoffeeSrc.Vaso;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -21,35 +25,35 @@ public class TestMaquinaDeCafe {
         azucarero = new Azucarero(20);
 
         maquinaDeCafe = new MaquinaDeCafe();
-        maquinaDeCafe.setCafetera(cafetera);
-        maquinaDeCafe.setCafetera(vasosPequeno);
-        maquinaDeCafe.setCafetera(vasosMediano);
-        maquinaDeCafe.setCafetera(vasosGrande);
-        maquinaDeCafe.setCafetera(azucarero);
+        maquinaDeCafe.setCafe(cafetera);
+        maquinaDeCafe.setVasosPequenos(vasosPequeno);
+        maquinaDeCafe.setVasosMedianos(vasosMediano);
+        maquinaDeCafe.setVasosGrandes(vasosGrande);
+        maquinaDeCafe.setAzucarero(azucarero);
 
     }
 
     @Test
     public void deberiaDevolverUnVasoPequeno() {
         Vaso vaso = maquinaDeCafe.getTipoDeVaso("pequeno");
-        assertEquals(maquinaDeCafe.vasosPequeno, vaso);
+        assertEquals(maquinaDeCafe.getVasosPequenos(), vaso);
     }
 
     @Test
     public void deberiaDevolverUnVasoMediano() {
         Vaso vaso = maquinaDeCafe.getTipoDeVaso("mediano");
-        assertEquals(maquinaDeCafe.vasosMediano, vaso);
+        assertEquals(maquinaDeCafe.getVasosMedianos(), vaso);
     }
 
     @Test
     public void deberiaDevolverUnVasoGrande() {
         Vaso vaso = maquinaDeCafe.getTipoDeVaso("grande");
-        assertEquals(maquinaDeCafe.vasosGrande, vaso);
+        assertEquals(maquinaDeCafe.getVasosGrandes(), vaso);
     }
 
     @Test
     public void deberiaDevolverNoHayVasos() {
-        Vaso vaso - maquinaDeCafe.getTipoDeVaso("pequeño");
+        Vaso vaso = maquinaDeCafe.getTipoDeVaso("pequeno");
         String resultado = maquinaDeCafe.getVasoDeCafe(vaso, 10, 2);
         assertEquals("No hay Vasos", resultado);
     }
@@ -57,7 +61,7 @@ public class TestMaquinaDeCafe {
     @Test
     public void deberiaDevolverNoHayCafe() {
         cafetera = new Cafetera(5);
-        maquinaDeCafe.setCafetera(cafetera);
+        maquinaDeCafe.setCafe(cafetera);
 
         Vaso vaso = maquinaDeCafe.getTipoDeVaso("pequeno");
 
@@ -82,7 +86,7 @@ public class TestMaquinaDeCafe {
 
         maquinaDeCafe.getVasoDeCafe(vaso, 1, 3);
 
-        int resultado = maquinaDeCafe.getCafetera().getCantidadCafe();
+        int resultado = maquinaDeCafe.getCafe().getCantidadCafe();
         assertEquals(40, resultado);
     }
 
@@ -92,7 +96,7 @@ public class TestMaquinaDeCafe {
 
         maquinaDeCafe.getVasoDeCafe(vaso, 1, 3);
 
-        int resultado = maquinaDeCafe.getVasosPequeno().getCantidadVasos();
+        int resultado = maquinaDeCafe.getVasosPequenos().getCantidadVasos();
         assertEquals(4, resultado);
     }
 
@@ -102,14 +106,14 @@ public class TestMaquinaDeCafe {
 
         maquinaDeCafe.getVasoDeCafe(vaso, 1, 3);
 
-        int resultado = maquinaDeCafe.getAzucarero().getCantidadAzucar();
+        int resultado = maquinaDeCafe.getAzucarero().getCantidadDeAzucar();
         assertEquals(17, resultado);
     }
 
     @Test
     public void deberiaDevolverFelicitaciones() {
         Vaso vaso = maquinaDeCafe.getTipoDeVaso("pequeno");
-        String resultado = maquinaDeCafe.getVasoDeCafe(1,3);
+        String resultado = maquinaDeCafe.getVasoDeCafe(vaso,1,3);
         assertEquals("Felicitaciones", resultado);
     }
 

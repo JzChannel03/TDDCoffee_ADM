@@ -1,3 +1,4 @@
+import CoffeeSrc.Azucarero;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -16,28 +17,28 @@ public class TestAzucarero {
     public void deberiaDevolverVerdaderoSiHaySuficienteAzucarEnElAzuquero() {
         boolean resultado = azuquero.hasAzucar(5);
 
-        assertEquals(true, resultado);
+        assertTrue(resultado);
 
         resultado = azuquero.hasAzucar(10);
 
-        assertEquals(true, resultado);
+        assertTrue(resultado);
     }
 
     @Test
-    public void deberiaDevolverFalsoPorqueNoHaySuficienteAzucarEnElAzuquero() () {
+    public void deberiaDevolverFalsoPorqueNoHaySuficienteAzucarEnElAzuquero() {
         boolean resultado = azuquero.hasAzucar(15);
 
-        assertEquals(false, resultado);
+        assertFalse(resultado);
     }
 
     @Test
     public void deberiaRestarAzucarAlAzuquero() {
         azuquero.giveAzucar(5);
 
-        assertEquals(5, azuquero.getCantidadAzucar());
+        assertEquals(5, azuquero.getCantidadDeAzucar());
 
         azuquero.giveAzucar(2);
 
-        assertEquals(3, azuquero.getCantidadAzucar());
+        assertEquals(3, azuquero.getCantidadDeAzucar());
     }
 }
