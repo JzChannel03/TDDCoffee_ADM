@@ -1,3 +1,4 @@
+import CoffeeSrc.Cafetera;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -10,7 +11,7 @@ public class TestCafetera {
 
         boolean resultado = cafetera.hasCafe(5);
 
-        assertEquals(true, resultado);
+        assertTrue(resultado);
     }
 
     @Test
@@ -19,7 +20,7 @@ public class TestCafetera {
 
         boolean resultado = cafetera.hasCafe(11);
 
-        assertEquals(false, resultado);
+        assertFalse(resultado);
     }
 
     @Test
